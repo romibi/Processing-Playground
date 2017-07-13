@@ -39,7 +39,9 @@ class Circle {
     if (this == other) return false;
     float d = dist(x, y, other.x, other.y);
     if (d - 2 < r + other.r) {
+      if(abs(age-other.age)<maxage/4) {
         return true;
+      }
     }
     return false;
   }
