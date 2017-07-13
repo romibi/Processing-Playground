@@ -8,6 +8,8 @@ class Circle {
   float y;
   float r;
   color c;
+  int age = 0;
+  int maxage = 240;
 
   boolean growing = true;
 
@@ -22,6 +24,7 @@ class Circle {
     if (growing) {
       r = r + 0.5;
     }
+    age++;
   }
 
   boolean edges() {
@@ -38,10 +41,9 @@ class Circle {
   }
 
   void show() {
-    //stroke(255);
-    //strokeWeight(2);
-    //noFill();
-    fill(c);
+    float a = map(age,maxage/4,maxage,255,0);
+    if(a>255) a=255;
+    fill(c, a);
     noStroke();
     ellipse(x, y, r*2, r*2);
   }
