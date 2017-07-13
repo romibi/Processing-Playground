@@ -17,7 +17,7 @@ void setup() {
 void draw() {
   background(0);
 
-  int total = 10;
+  int total = 50;
   int count = 0;
   int attempts = 0;
 
