@@ -31,6 +31,10 @@ class Circle {
     return (x + r > width || x -  r < 0 || y + r > height || y -r < 0);
   }
   
+  boolean dead() {
+    return age>maxage;
+  }
+  
   boolean colliding(Circle other) {
     if (this == other) return false;
     float d = dist(x, y, other.x, other.y);

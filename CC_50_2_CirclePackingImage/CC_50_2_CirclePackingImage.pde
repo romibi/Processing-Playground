@@ -3,6 +3,7 @@
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/ERQcYaaZ6F0
 
+import java.util.Iterator;
 ArrayList<Circle> circles;
 PImage img;
 
@@ -35,7 +36,8 @@ void draw() {
   }
 
 
-  for (Circle c : circles) {
+  for (Iterator<Circle> iterator = circles.iterator(); iterator.hasNext();) {
+    Circle c = iterator.next();
     if (c.growing) {
       if (c.edges()) {
         c.growing = false;
@@ -50,6 +52,9 @@ void draw() {
     }
     c.show();
     c.grow();
+    if(c.dead()) {
+      iterator.remove();
+    }
   }
 }
 
