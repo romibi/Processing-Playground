@@ -31,19 +31,12 @@ void draw() {
 
   int total = 50;
   int count = 0;
-  int attempts = 0;
 
   while (count <  total) {
     Circle newC = newCircle();
     if (newC != null) {
       circles.add(newC);
       count++;
-    }
-    attempts++;
-    if (attempts > 1000) {
-      noLoop();
-      println("FINISHED");
-      break;
     }
   }
 
