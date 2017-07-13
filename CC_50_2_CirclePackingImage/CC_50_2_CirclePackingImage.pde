@@ -9,7 +9,8 @@ ArrayList<Circle> circles;
 Capture cam;
 
 void setup() {
-  size(800, 800);
+  size(150,150);
+  surface.setResizable(true);
   String[] devices = Capture.list();
   cam = new Capture(this,devices[0]);  
   cam.start();
@@ -19,6 +20,7 @@ void setup() {
     delay(1);
   }
   
+  surface.setSize(cam.width, cam.height);
   circles = new ArrayList<Circle>();
 }
 
