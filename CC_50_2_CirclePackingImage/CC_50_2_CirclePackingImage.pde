@@ -1,7 +1,8 @@
-// Daniel Shiffman
+// Daniel Shiffman, romibi
 // http://codingtra.in
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/ERQcYaaZ6F0
+// modified for camera
 
 import processing.video.*;
 import java.util.Iterator;
