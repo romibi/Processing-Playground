@@ -41,12 +41,9 @@ void draw() {
         c.growing = false;
       } else {
         for (Circle other : circles) {
-          if (c != other) {
-            float d = dist(c.x, c.y, other.x, other.y);
-            if (d - 2 < c.r + other.r) {
-              c.growing = false;
-              break;
-            }
+          if(c.colliding(other)) {
+            c.growing = false;
+            break;
           }
         }
       }

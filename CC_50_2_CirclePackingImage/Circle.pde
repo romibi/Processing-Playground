@@ -27,6 +27,15 @@ class Circle {
   boolean edges() {
     return (x + r > width || x -  r < 0 || y + r > height || y -r < 0);
   }
+  
+  boolean colliding(Circle other) {
+    if (this == other) return false;
+    float d = dist(x, y, other.x, other.y);
+    if (d - 2 < r + other.r) {
+        return true;
+    }
+    return false;
+  }
 
   void show() {
     //stroke(255);
