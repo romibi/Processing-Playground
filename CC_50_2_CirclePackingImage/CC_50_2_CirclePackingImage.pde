@@ -3,19 +3,31 @@
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/ERQcYaaZ6F0
 
+import processing.video.*;
 import java.util.Iterator;
 ArrayList<Circle> circles;
-PImage img;
+Capture cam;
 
 void setup() {
   size(800, 800);
-  img = loadImage("kitten.jpg");
-  img.loadPixels();
+  String[] devices = Capture.list();
+  cam = new Capture(this,devices[0]);  
+  cam.start();
+  
+  while(cam.width == 0 || cam.height == 0) {
+    if(cam.available()) cam.read();
+    delay(1);
+  }
+  
   circles = new ArrayList<Circle>();
 }
 
 void draw() {
   background(0);
+  if(cam.available()) {
+    cam.read();
+    cam.loadPixels();  
+  }
 
   int total = 50;
   int count = 0;
@@ -73,8 +85,7 @@ Circle newCircle() {
   }
 
   if (valid) {
-    int index = int(x) + int(y) * img.width;
-    color col = img.pixels[index];
+    color col = cam.get(int(x),int(y));
     return new Circle(x, y, col);
   } else {
     return null;
