@@ -11,3 +11,5 @@ modes/
 templates/
 tools/
 GoproVideo/data/ffplay\.exe
+
+*.jar
