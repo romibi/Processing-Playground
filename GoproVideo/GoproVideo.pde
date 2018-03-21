@@ -215,6 +215,9 @@ void setupButtons() {
   
   ButtonTrigger launchffplay = new ButtonTrigger(5, height-40, 80, 30, "Start ffplay", new Runnable() {
     public void run() {
+      udp.close();
+      udp.dispose();
+      udp = new UDP(PAPPLET);
       launchFfplay();
     }
   });
